@@ -4,8 +4,9 @@
   "type": "module",
   "scripts": {
     "lint": "eslint src/**/*",
-    "dev": "bun run index.ts --hot",
-    "start": "bun run index.ts"
+    "dev": "bun run --hot index.ts",
+    "start": "bun run index.ts",
+    "format": "prettier -c .prettierrc src/**/* --write"
   },
   "devDependencies": {
     "@types/bun": "latest",
