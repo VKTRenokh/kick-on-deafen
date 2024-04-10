@@ -5,6 +5,11 @@ export const bot = (token: string) => {
     intents: [GatewayIntentBits.GuildVoiceStates],
   })
 
+  client.on('voiceStateUpdate', (_, newState) => {
+    console.log('kicked', newState.id)
+    newState.deaf && newState.disconnect()
+  })
+
   client
     .login(token)
     .then(() => console.log('bot login successful'))
