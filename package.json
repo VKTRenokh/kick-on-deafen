@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "lint": "eslint src/**/*",
-    "dev": "bun run index.ts --hot"
+    "dev": "bun run index.ts --hot",
+    "start": "bun run index.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
