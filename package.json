@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "lint": "eslint src/**/*",
-    "dev": "bun run --hot index.ts",
+    "dev": "bun run --dev --development --watch index.ts",
     "start": "bun run index.ts",
     "format": "prettier -c .prettierrc src/**/* --write"
   },

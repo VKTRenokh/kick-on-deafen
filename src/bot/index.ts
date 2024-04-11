@@ -1,8 +1,7 @@
 import { Client, GatewayIntentBits } from 'discord.js'
-import { disconnect } from './disconnect'
-import { disconnectOnTimeOut } from './disconnect-on-timeout'
+import { createVoiceStateHandler } from './create-voice-state-handler'
 
-export const bot = (token: string, timeout?: number) => {
+export const bot = (token: string) => {
   const client = new Client({
     intents: [
       GatewayIntentBits.GuildVoiceStates,
@@ -12,24 +11,10 @@ export const bot = (token: string, timeout?: number) => {
 
   const toDisconnect = new Map<string, Timer>()
 
-  client.on('voiceStateUpdate', (oldState, newState) => {
-    if (toDisconnect.has(newState.id) && !newState.deaf) {
-      clearTimeout(toDisconnect.get(newState.id))
-      toDisconnect.delete(newState.id)
-      return
-    }
-
-    if (!oldState.channel && newState.deaf) {
-      toDisconnect.set(
-        newState.id,
-        disconnectOnTimeOut(newState, timeout ?? 5_000),
-      )
-
-      return
-    }
-
-    newState.deaf && disconnect(newState)
-  })
+  client.on(
+    'voiceStateUpdate',
+    createVoiceStateHandler(toDisconnect),
+  )
 
   client
     .login(token)
