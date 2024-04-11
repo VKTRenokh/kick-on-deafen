@@ -1,6 +1,7 @@
 import type { VoiceState } from 'discord.js'
-import { disconnect } from './disconnect'
-import { disconnectOnTimeOut } from './disconnect-on-timeout'
+import { disconnect } from './utils'
+import { disconnectOnTimeOut } from './utils'
+import { timeout } from './constants'
 
 export const createVoiceStateHandler =
   (toDisconnect: Map<string, Timer>) =>
@@ -19,7 +20,7 @@ export const createVoiceStateHandler =
         newState.id,
         disconnectOnTimeOut(
           newState,
-          +(process.env.TIMEOUT ?? 5_000),
+          +(process.env.TIMEOUT ?? timeout),
         ),
       )
 
