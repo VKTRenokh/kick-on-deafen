@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint src/**/*",
     "lint-fix": "eslint src/**/* --fix",
-    "dev": "bun run --dev --development --watch index.ts",
+    "dev": "bun run --watch index.ts",
     "start": "bun run index.ts",
     "format": "prettier -c .prettierrc src/**/* --write"
   },

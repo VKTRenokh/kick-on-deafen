@@ -13,7 +13,7 @@ export const bot = (token: string) => {
 
   client.on(
     'voiceStateUpdate',
-    createVoiceStateHandler(toDisconnect),
+    createVoiceStateHandler(toDisconnect, console.log),
   )
 
   client
