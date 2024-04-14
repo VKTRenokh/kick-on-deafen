@@ -1,5 +1,5 @@
 import { Client, GatewayIntentBits } from 'discord.js'
-import { createVoiceStateHandler } from './create-voice-state-handler'
+import { createHandler } from './voice'
 
 export const bot = (token: string) => {
   const client = new Client({
@@ -13,7 +13,7 @@ export const bot = (token: string) => {
 
   client.on(
     'voiceStateUpdate',
-    createVoiceStateHandler(toDisconnect, console.log),
+    createHandler(toDisconnect, console.log),
   )
 
   client
