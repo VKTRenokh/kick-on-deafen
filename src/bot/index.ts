@@ -1,6 +1,14 @@
 import { Client, GatewayIntentBits } from 'discord.js'
 import { createHandler } from './voice'
 
+const handleLogin = () => {
+  console.log('bot login successful')
+}
+
+const handleLoginError = (error: unknown) => {
+  console.log('got an error while trying to login', error)
+}
+
 export const bot = (token: string) => {
   const client = new Client({
     intents: [
@@ -18,8 +26,6 @@ export const bot = (token: string) => {
 
   client
     .login(token)
-    .then(() => console.log('bot login successful'))
-    .catch((e) =>
-      console.log('got an error while trying to login', e),
-    )
+    .then(handleLogin)
+    .catch(handleLoginError)
 }
