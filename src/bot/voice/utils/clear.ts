@@ -6,7 +6,6 @@ export const clear = (
   state: VoiceState,
 ) => {
   clearTimeout(toDisconnect.get(state.id))
-  toDisconnect.delete(state.id)
 
   return toDisconnect.delete(state.id)
     ? 'disconnected'

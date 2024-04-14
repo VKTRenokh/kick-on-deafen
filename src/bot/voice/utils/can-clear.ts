@@ -5,4 +5,4 @@ import { canKick } from './can-kick'
 export const canClear = (
   toDisconnect: ToDisconnect,
   newState: VoiceState,
-) => toDisconnect.has(newState.id) && canKick(newState)
+) => toDisconnect.has(newState.id) && !canKick(newState)
