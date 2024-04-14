@@ -15,7 +15,6 @@ export const createHandler =
   (oldState: VoiceState, newState: VoiceState) => {
     const log = createLogger(newState, logger)
 
-    console.log(canClear(toDisconnect, newState))
     if (canClear(toDisconnect, newState)) {
       log(clear(toDisconnect, newState))
       return
