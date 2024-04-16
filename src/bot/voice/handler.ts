@@ -6,6 +6,7 @@ import { clear } from './utils/clear'
 import { canKick } from './utils/can-kick'
 import { add } from './utils/add'
 import { createLogger } from './logger'
+import { exceptions } from './exceptions'
 
 export const createHandler =
   (
@@ -13,6 +14,10 @@ export const createHandler =
     logger: (message: string) => void,
   ) =>
   (oldState: VoiceState, newState: VoiceState) => {
+    if (exceptions.includes(newState.id)) {
+      return
+    }
+
     const log = createLogger(newState, logger)
 
     if (canClear(toDisconnect, newState)) {
