@@ -6,7 +6,7 @@ import { clear } from './utils/clear'
 import { canKick } from './utils/can-kick'
 import { add } from './utils/add'
 import { createLogger } from './logger'
-import { exceptions } from './exceptions'
+import { except } from './exceptions'
 
 export const createHandler =
   (
@@ -14,7 +14,7 @@ export const createHandler =
     logger: (message: string) => void,
   ) =>
   (oldState: VoiceState, newState: VoiceState) => {
-    if (exceptions.includes(newState.id)) {
+    if (except(newState)) {
       return
     }
 
