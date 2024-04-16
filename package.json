@@ -7,7 +7,8 @@
     "lint-fix": "eslint src/**/* --fix",
     "dev": "bun run --watch index.ts",
     "start": "bun run index.ts",
-    "format": "prettier -c .prettierrc src/**/* --write"
+    "format": "prettier -c .prettierrc src/**/* --write",
+    "build": "bun run build.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
