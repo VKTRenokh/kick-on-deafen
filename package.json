@@ -22,6 +22,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "discord.js": "^14.14.1"
+    "discord.js": "^14.14.1",
+    "@control.ts/signals": "^0.0.2"
   }
 }
