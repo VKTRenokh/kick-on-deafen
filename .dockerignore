@@ -4,3 +4,4 @@ node_modules
 .ignore
 .dockerignor
 dist
+.env

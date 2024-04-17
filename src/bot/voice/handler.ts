@@ -7,6 +7,7 @@ import { canKick } from './utils/can-kick'
 import { add } from './utils/add'
 import { createLogger } from './logger'
 import { except } from './exceptions'
+import { whitelist } from './constants'
 
 export const createHandler =
   (
@@ -14,7 +15,7 @@ export const createHandler =
     logger: (message: string) => void,
   ) =>
   (oldState: VoiceState, newState: VoiceState) => {
-    if (except(newState)) {
+    if (except(newState, whitelist)) {
       return
     }
 
