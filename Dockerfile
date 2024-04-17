@@ -1,4 +1,4 @@
-FROM oven/bun as base
+FROM oven/bun:alpine as base
 WORKDIR /usr/src/bot
 
 FROM base AS installer
