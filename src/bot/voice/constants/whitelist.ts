@@ -1,1 +1,1 @@
-export const whitelist = []
+export const whitelist = [1064595756515852419, 181449001550217216]
