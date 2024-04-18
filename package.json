@@ -7,7 +7,7 @@
     "lint-fix": "eslint src/**/* --fix",
     "dev": "bun run --watch index.ts",
     "start": "bun run index.ts",
-    "format": "prettier -c .prettierrc src/**/* --write",
+    "format": "prettier --config .prettierrc src/ --write",
     "build": "bun run build.ts"
   },
   "devDependencies": {
@@ -22,7 +22,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "discord.js": "^14.14.1",
-    "@control.ts/signals": "^0.0.2"
+    "@control.ts/signals": "^0.0.2",
+    "discord.js": "^14.14.1"
   }
 }

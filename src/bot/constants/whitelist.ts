@@ -3,4 +3,3 @@ export const whitelist = [
   '1064595756515852419', // Gentlemen
   '282509088875872258', // intelligentRaji
 ]
-

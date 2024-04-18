@@ -8,6 +8,6 @@ export const clear = (
   clearTimeout(toDisconnect.get(state.id))
 
   return toDisconnect.delete(state.id)
-    ? 'disconnected'
+    ? 'cleared from toDisconnect'
     : "user wasn't in toDisconnect"
 }

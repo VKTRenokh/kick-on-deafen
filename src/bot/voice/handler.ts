@@ -1,10 +1,10 @@
-import type { VoiceState } from 'discord.js'
-import { disconnect } from '../utils'
+import { whitelist } from '$constants'
+import { disconnect } from '$utils'
 import type { ToDisconnect } from 'bot/types'
-import { canClear, clear, canKick, add } from './utils'
+import type { VoiceState } from 'discord.js'
+import { except } from './except'
 import { createLogger } from './logger'
-import { except } from './exceptions'
-import { whitelist } from './constants'
+import { add, canClear, canKick, clear } from './utils'
 
 export const createHandler =
   (
@@ -30,6 +30,8 @@ export const createHandler =
       return
     }
 
-    canKick(newState) && disconnect(newState)
-    log('disconnected')
+    canKick(newState) && (
+      disconnect(newState),
+      log('disconnected')
+    )
   }

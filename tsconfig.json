@@ -23,6 +23,14 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "paths": {
+      "$constants": [
+        "bot/constants/index.ts",
+      ],
+      "$utils": [
+        "bot/utils/index.ts",
+      ]
+    }
   }
 }
